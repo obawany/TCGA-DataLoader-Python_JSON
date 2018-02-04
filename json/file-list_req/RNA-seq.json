@@ -1,0 +1,48 @@
+{
+    "filters":{
+        "op":"and",
+        "content":[
+            {
+                "op":"in",
+                "content":{
+                    "field":"files.access",
+                    "value":[
+                        "open"
+                    ]
+                }
+            },
+            {
+                "op":"exclude",
+                "content":{
+                    "field":"files.analysis.workflow_type",
+                    "value":[
+                        "HTSeq - FPKM",
+                        "HTSeq - FPKM-UQ"
+                    ]
+                }
+            },
+            {
+                "op":"in",
+                "content":{
+                    "field":"files.experimental_strategy",
+                    "value":[
+                        "RNA-Seq"
+                    ]
+                }
+            },
+            {
+                "op":"=",
+                "content":{
+                    "field":"files.data_category",
+                    "value":[
+                        "Transcriptome Profiling"
+                    ]
+                }
+            }
+        ]
+    },
+    "format":"json",
+    "fields":"file_id,file_name,data_type,cases.samples.sample_id,cases.project.project_id,cases.project.primary_site,cases.demographic.gender",
+    "size":"500",
+    "from":"0"
+}
